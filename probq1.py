@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-# i know what I want to do, no idea on how to code it
 
 import sys
 import pandas
@@ -17,9 +16,16 @@ transcript = []
 for line in f:
     field = line.strip("\r\n").split()
     if field [2] == "transcript":
+        if field [6] == "+":
+            name = line.rstrip("\r\n").split()
+        if field [6] == "-":
+            name = line.rstrip("\r\n").split()
+        if field [2] == "":
+            break
+            
         transcript.append( field[0] )
         transcript.append( field[5] )
         
     
-    print transcript  
+print transcript  
     
